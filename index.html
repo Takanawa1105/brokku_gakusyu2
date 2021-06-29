@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブロック学習</title>
+</head>
+<body>
+    <h2>ブロック学習のテストを行います</h2>
+    韓国語の記憶テストを行います
+    <br>韓国語とその日本語訳が5秒ずつ3セット表示されるので記憶してください
+    <br>終了し、1経過後に計8問の4択のテストを行います
+    <FORM name="myForm"><INPUT size="30" style="font-size:50px;" name="tbox" type="text">
+    </FORM>
+    <FORM><INPUT type="button" onclick="Loopmsg();" name="botan" value="スタート"></FORM>
+    <script type="text/javascript">
+    let i = 0, v = 0;
+    msg = [　 // 表示する文字列の配列
+
+        " 취미:趣味 ",
+        " 아버지:お父さん ",
+        " 학생:学生 ",
+        " 태풍:台風 ",
+        " 정식:定食 ",
+        " 라임:ライム ",
+        " 고양이:猫 ",
+        " 정장:スーツ "
+    ]    
+    function Loopmsg() {
+    if (v < 25) {
+    v++;　   // vは繰り返し回数、この場合は24回で止まります
+        if (i < msg.length) {
+        document.myForm.tbox.value = msg[i];
+        i++;
+            if (i == msg.length) {  // msg.lengthは配列の数
+            i = 0;
+            }
+            if(v==25){
+                document.myForm.tbox.value = "";
+            }
+        setTimeout("Loopmsg()", 5000);　 //メッセージの変わる速度（単位は千分の一秒）
+        }
+    }
+    else{
+        setTimeout("location.href='https://docs.google.com/forms/d/e/1FAIpQLSdDFsGeuhNWZOf70KhZd41QBGmmQWV8fK2Tl5A0-JIWm5eQ5Q/viewform'",60000);
+    }
+    }
+    
+    </script>
+</body>
+</html>
